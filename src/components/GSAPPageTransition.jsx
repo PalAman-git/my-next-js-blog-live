@@ -1,51 +1,58 @@
 "use client";
-import { useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
-import gsap from 'gsap';
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import gsap from "gsap";
 
-// Wrap pages for GSAP-powered transitions (fade/slide), SSR-safe.
 export default function GSAPPageTransition({ children }) {
   const ref = useRef();
   const pathname = usePathname();
 
   useEffect(() => {
-    // Animate out on route change
     if (!ref.current) return;
-    gsap.fromTo(
-      ref.current,
-      { opacity: 0, y: 24 },
-      { opacity: 1, y: 0, duration: 0.58, ease: "power3.out", clearProps: "all" }
-    );
+
+    // Scoped animations for cleanup
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.58, ease: "power3.out" }
+      );
+    }, ref);
+
+    return () => ctx.revert(); // cleanup on unmount
   }, [pathname]);
 
-  // On mount, animate hero split-effect if class found
   useEffect(() => {
     if (!ref.current) return;
-    const h1 = ref.current.querySelector('h1');
-    if (h1) {
-      const text = h1.innerText;
-      h1.innerHTML = text
-        .split(' ')
+
+    const ctx = gsap.context(() => {
+      const h1 = ref.current.querySelector("h1");
+      if (!h1) return;
+
+      const words = h1.innerText.split(" ");
+      h1.innerHTML = words
         .map(
-          (part, i) =>
-            `<span style="display:inline-block;opacity:0;transform:translateY(30px);" data-split="1">${part} </span>`
+          (word) =>
+            `<span class="inline-block opacity-0 translate-y-6" data-split="1">${word}&nbsp;</span>`
         )
-        .join('');
+        .join("");
+
       const splitSpans = h1.querySelectorAll('[data-split="1"]');
       gsap.to(splitSpans, {
         opacity: 1,
         y: 0,
         stagger: 0.045,
-        ease: 'power2.out',
+        ease: "power2.out",
         duration: 0.5,
-        delay: 0.18
+        delay: 0.18,
       });
-    }
+    }, ref);
+
+    return () => ctx.revert();
   }, [pathname]);
 
   return (
-    // this is the most closest div which contains the Home, Daily and Technical components
-    <div ref={ref} className="w-full flex justify-center items-center border">
+    <div ref={ref} className="w-full flex justify-center items-center my-20">
       {children}
     </div>
   );

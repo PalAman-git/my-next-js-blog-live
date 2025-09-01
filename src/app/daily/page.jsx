@@ -17,7 +17,7 @@ export default async function DailyPage({ searchParams }) {
 
   return (
     <GSAPPageTransition>
-      <section className="container flex flex-col justify-center items-center border-1 max-w-3xl py-10 px-4">
+      <section className="container flex flex-col justify-center items-center max-w-3xl py-10 px-4">
         <h1 className="text-2xl sm:text-3xl font-extrabold mb-4">Daily Insights</h1>
         <SearchBar placeholder="Search daily insights..." />
         {allTags.length > 0 && (

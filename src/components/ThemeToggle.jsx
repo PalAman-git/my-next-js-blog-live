@@ -38,7 +38,7 @@ export default function ThemeToggle() {
   return (
     <button
       aria-label="Toggle dark mode"
-      className="ml-2 p-2 rounded-full border border-[var(--border)] text-[var(--accent)] bg-surface hover:bg-accent hover:text-white transition"
+      className={`ml-2 p-2 rounded-full border border-[var(--border)] text-[var(--accent)] bg-surface hover:bg-accent ${theme === 'dark' ? 'hover:text-white' : 'hover:text-[#1a1a1a]'} transition cursor-pointer`}
       onClick={toggleTheme}
     >
       {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}

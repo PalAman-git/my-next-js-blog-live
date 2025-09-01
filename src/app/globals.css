@@ -10,7 +10,7 @@
   --border: #2a2a2a;
   --text: #e5e5e5;
   --muted: #a3a3a3;
-  --accent: #8e8dfa;
+  --accent: #d09963;
   --accent-hover: #a5a4fc;
   --success: #3dd68c;
   --warning: #f5a623;
@@ -26,7 +26,7 @@ html.light {
   --border: #e5e5e5;
   --text: #111111;
   --muted: #555555;
-  --accent: #8e8dfa;
+  --accent: #d09963;
   --accent-hover: #a5a4fc;
   --success: #3dd68c;
   --warning: #f5a623;
@@ -137,4 +137,8 @@ hr {
 html,
 body {
   transition: background 0.4s, color 0.4s;
+}
+
+html {
+  scrollbar-gutter: stable;
 }

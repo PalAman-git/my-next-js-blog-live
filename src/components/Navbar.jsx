@@ -20,11 +20,10 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-30 shadow-soft bg-surface/95 backdrop-blur transition">
+    <nav className="sticky top-0 z-30 shadow-soft bg-surface/95 backdrop-blur transition py-3">
       <div className="max-w-5xl mx-auto flex items-center gap-3 px-4 py-2 relative">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.svg" width={34} height={34} alt="Logo" priority />
-          <span className="font-bold text-lg text-[var(--accent)] hidden sm:inline">Next.js Blog</span>
+          <span className="font-bold text-lg text-[var(--accent)] hidden sm:inline">Log & Learn</span>
         </Link>
         <div className="flex-1" />
         <div className="hidden md:flex gap-2">
@@ -32,7 +31,7 @@ export default function Navbar() {
             <Link
               key={item.title}
               href={item.href}
-              className={`px-4 py-2 rounded-2xl font-medium transition border border-transparent
+              className={`px-4 py-2 rounded-lg font-medium transition border border-transparent
                 ${pathname === item.href
                   ? 'bg-accent text-white'
                   : 'hover:border-[var(--accent)] hover:bg-surface'}`}

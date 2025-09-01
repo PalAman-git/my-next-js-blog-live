@@ -10,9 +10,9 @@ export default async function Home() {
   const posts = await listPosts({ take: 4, featured: true });
 
   return (
-    <GSAPWrapper className="flex">
-      <section className="container max-w-3xl py-16 px-4 flex flex-col items-center text-center gap-8 border-1">
-        <Image src="/logo.svg" alt="Logo" width={56} height={56} priority className="mb-2" />
+    <GSAPWrapper>
+      <section className="container max-w-3xl py-16 px-4 flex flex-col items-center text-center gap-8">
+        {/* <Image src="/logo.svg" alt="Logo" width={56} height={56} priority className="mb-2" /> */}
 
         {/* Hero Split Text */}
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--text)]">
@@ -28,12 +28,12 @@ export default async function Home() {
 
         <div className="flex gap-4 justify-center">
           <Link prefetch href="/daily">
-            <button className="rounded-2xl bg-surface shadow-soft px-6 py-3 text-[var(--accent)] font-bold transition hover:scale-[1.05] border border-[var(--border)]">
+            <button className="rounded-2xl bg-surface shadow-soft px-6 py-3 text-[var(--accent)] font-bold transition hover:scale-[1.05] border border-[var(--border)] cursor-pointer">
               Daily Insights
             </button>
           </Link>
           <Link prefetch href="/technical">
-            <button className="rounded-2xl bg-surface shadow-soft px-6 py-3 text-[var(--accent)] font-bold transition hover:scale-[1.05] border border-[var(--border)]">
+            <button className="rounded-2xl bg-surface shadow-soft px-6 py-3 text-[var(--accent)] font-bold transition hover:scale-[1.05] border border-[var(--border)] cursor-pointer">
               Technical Posts
             </button>
           </Link>

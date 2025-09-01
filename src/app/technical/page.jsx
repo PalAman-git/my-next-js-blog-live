@@ -16,7 +16,7 @@ export default async function TechnicalPage({ searchParams }) {
 
   return (
     <GSAPPageTransition>
-      <section className="container max-w-3xl py-10 px-4">
+      <section className="container flex flex-col items-center max-w-3xl py-10 px-4">
         <h1 className="text-2xl sm:text-3xl font-extrabold mb-4">Technical Posts</h1>
         <SearchBar placeholder="Search technical posts..." />
         {allTags.length > 0 && (
