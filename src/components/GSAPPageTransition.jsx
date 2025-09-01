@@ -44,7 +44,8 @@ export default function GSAPPageTransition({ children }) {
   }, [pathname]);
 
   return (
-    <div ref={ref} className="w-full">
+    // this is the most closest div which contains the Home, Daily and Technical components
+    <div ref={ref} className="w-full flex justify-center items-center border">
       {children}
     </div>
   );

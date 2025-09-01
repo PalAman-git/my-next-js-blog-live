@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} min-h-screen bg-[var(--background)] text-[var(--text)] duration-300 selection:bg-[var(--accent)] selection:text-white`}>
         <Navbar />
-        <main className="flex-1 flex flex-col">{children}</main>
+        <main className="flex-1 flex flex-col items-center">{children}</main>
         <Footer />
         {/* Place ThemeToggle here if global access wanted */}
       </body>

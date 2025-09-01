@@ -10,8 +10,8 @@ export default async function Home() {
   const posts = await listPosts({ take: 4, featured: true });
 
   return (
-    <GSAPWrapper>
-      <section className="container max-w-3xl py-16 px-4 flex flex-col items-center text-center gap-8">
+    <GSAPWrapper className="flex">
+      <section className="container max-w-3xl py-16 px-4 flex flex-col items-center text-center gap-8 border-1">
         <Image src="/logo.svg" alt="Logo" width={56} height={56} priority className="mb-2" />
 
         {/* Hero Split Text */}
