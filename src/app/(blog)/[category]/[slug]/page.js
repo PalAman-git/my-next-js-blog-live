@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getAllSlugs } from '../../../lib/posts';
-import Prose from '../../../components/Prose';
-import TagPills from '../../../components/TagPills';
+import { getPostBySlug,getAllSlugs } from '../../../../lib/posts';
+import Prose from '../../../../components/Prose';
+import TagPills from '../../../../components/TagPills';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
