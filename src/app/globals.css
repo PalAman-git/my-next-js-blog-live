@@ -1,0 +1,140 @@
+@import "tailwindcss";
+/* @import "prism-themes/themes/prism-vsc-dark-plus.css"; */
+
+/* Font faces (Inter is loaded via next/font/google) */
+
+/* CSS Variables: dark vs light theme */
+:root {
+  --background: #1a1a1a;
+  --surface: #1f1f1f;
+  --border: #2a2a2a;
+  --text: #e5e5e5;
+  --muted: #a3a3a3;
+  --accent: #8e8dfa;
+  --accent-hover: #a5a4fc;
+  --success: #3dd68c;
+  --warning: #f5a623;
+  --error: #ff5c5c;
+  --input: #2a2a2a;
+  --ring: #8e8dfa;
+  --overlay: rgba(0,0,0,0.6);
+}
+
+html.light {
+  --background: #ffffff;
+  --surface: #f8f8f8;
+  --border: #e5e5e5;
+  --text: #111111;
+  --muted: #555555;
+  --accent: #8e8dfa;
+  --accent-hover: #a5a4fc;
+  --success: #3dd68c;
+  --warning: #f5a623;
+  --error: #ff5c5c;
+  --input: #f0f0f0;
+  --ring: #8e8dfa;
+  --overlay: rgba(0,0,0,0.04);
+}
+
+/* General */
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Card and button surfaces */
+.bg-surface {
+  background: var(--surface);
+}
+.text-muted {
+  color: var(--muted);
+}
+.bg-accent {
+  background: var(--accent);
+  color: #fff;
+}
+.bg-accent-hover:hover {
+  background: var(--accent-hover);
+}
+
+input,
+textarea,
+select {
+  background: var(--input);
+  color: var(--text);
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  outline: none;
+}
+input:focus,
+textarea:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+hr {
+  border-color: var(--border);
+}
+
+/* Soft shadows and rounded corners */
+.rounded-xl, .rounded-2xl, .rounded-full {
+  border-radius: 1rem;
+}
+.shadow-soft {
+  box-shadow: 0 4px 32px 0 rgba(20, 20, 30,.10);
+}
+.shadow-lg-soft {
+  box-shadow: 0 10px 40px 0 rgba(20,20,30,.15);
+}
+
+/* Prose type (headings, links etc.) */
+.prose code {
+  background: var(--surface);
+  color: var(--accent);
+  border-radius: 0.4em;
+  padding: 0 0.3em;
+  font-family: inherit;
+}
+.prose pre {
+  background: var(--surface) !important;
+  color: var(--text);
+  border-radius: 1rem;
+  padding: 1.2em;
+  font-size: 0.97em;
+  overflow-x: auto;
+}
+.prose a {
+  color: var(--accent);
+  text-decoration: underline dotted;
+  transition: color 0.15s;
+}
+.prose a:hover {
+  color: var(--accent-hover);
+}
+.prose img {
+  border-radius: 1rem;
+  margin: 2em auto;
+}
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  color: var(--text);
+  font-weight: 700;
+  margin-top: 2em;
+}
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  color: var(--muted);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 1em;
+}
+
+/* Transition for theme toggling */
+html,
+body {
+  transition: background 0.4s, color 0.4s;
+}

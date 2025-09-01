@@ -1,0 +1,26 @@
+---
+title: "GSAP Animations in React"
+date: "2025-07-18"
+tags: ["gsap", "react", "animation"]
+summary: "Real-world GSAP combos: route transitions, staggered scroll, tilt cards."
+cover: "/cover-default.jpg"
+draft: false
+---
+
+You can use **GSAP** + **ScrollTrigger** in React client components for rich UI polish.
+
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Animate on scroll
+gsap.to(".box", {
+y: 100,
+scrollTrigger: ".box"
+});
+
+
+- Only import GSAP in `"use client"` components!
+- Compose Timeline for smooth entry/exit effects.
+
