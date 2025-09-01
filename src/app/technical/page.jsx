@@ -8,7 +8,7 @@ import GSAPPageTransition from '../../components/GSAPPageTransition';
 export const revalidate = 60;
 
 export default async function TechnicalPage({ searchParams }) {
-  const { query = '', tags = '' } = searchParams || {};
+  const { query = '', tags = '' } = await searchParams || {};
   const posts = await listPosts({ category: 'technical', search: query, tag: tags, take: 100 });
 
   // Unique tags

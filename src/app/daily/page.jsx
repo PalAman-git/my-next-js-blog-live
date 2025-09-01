@@ -9,7 +9,7 @@ import GSAPPageTransition from '../../components/GSAPPageTransition';
 export const revalidate = 60;
 
 export default async function DailyPage({ searchParams }) {
-  const { query = '', tags = '' } = searchParams || {};
+  const { query = '', tags = '' } = await searchParams || {};
   const posts = await listPosts({ category: 'daily', search: query, tag: tags, take: 100 });
 
   // Extract unique tags for filter pill display
