@@ -5,22 +5,26 @@ import TagPills from '../../components/TagPills';
 import SearchBar from '../../components/SearchBar';
 import GSAPPageTransition from '../../components/GSAPPageTransition';
 
+// Dynamic tag search and fever animation on entry
 export const revalidate = 60;
 
-export default async function TechnicalPage({ searchParams }) {
-  const { query = '', tags = '' } = await searchParams || {};
-  const posts = await listPosts({ category: 'technical', search: query, tag: tags, take: 100 });
+export default async function DailyPage({ searchParams }) {
+  const params = await searchParams;   // wait for the whole searchParams object
+  const { query = '', tags = '' } = params || {};
 
-  // Unique tags
+  const posts = await listPosts({ category: 'daily', search: query, tag: tags, take: 100 });
+  console.log(posts)
+
+  // Extract unique tags for filter pill display
   const allTags = [...new Set(posts.flatMap((p) => p.tags || []))];
 
   return (
     <GSAPPageTransition>
-      <section className="container flex flex-col items-center max-w-3xl py-10 px-4">
-        <h1 className="text-2xl sm:text-3xl font-extrabold mb-4">Technical Posts</h1>
-        <SearchBar placeholder="Search technical posts..." />
+      <section className="container flex flex-col justify-center items-center max-w-3xl py-10 px-4">
+        <h1 className="text-2xl sm:text-3xl font-extrabold mb-4">Daily Insights</h1>
+        <SearchBar placeholder="Search daily insights..." />
         {allTags.length > 0 && (
-          <TagPills tags={allTags} category="technical" />
+          <TagPills tags={allTags} category="daily" />
         )}
         <div className="grid gap-8 mt-8">
           {posts.length > 0 ? (

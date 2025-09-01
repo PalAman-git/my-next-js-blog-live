@@ -9,7 +9,7 @@ export async function listPosts({ category, search, tag, take = 100, featured } 
   let posts = [];
 
   for (const cat of categories) {
-    const dir = path.join(process.cwd(), 'content', cat);
+    const dir = path.join(process.cwd(),'src','content', cat);
     if (!fs.existsSync(dir)) continue;
     const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
     for (const file of files) {
