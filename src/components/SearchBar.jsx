@@ -19,7 +19,7 @@ export default function SearchBar({ placeholder }) {
     <div className="relative max-w-lg w-full mb-3">
       <input
         type="text"
-        className="w-full rounded-2xl border border-[var(--border)] bg-surface px-4 py-2 pr-10 shadow-soft text-[var(--text)]"
+        className="w-full rounded-2xl border border-[var(--border)] bg-surface px-4 py-2 pr-10 shadow-soft text-[var(--text)] outline-none ring-2 ring-[var(--accent)] focus:ring-[var(--accent)] focus:ring-opacity-50"
         placeholder={placeholder}
         value={query}
         onChange={handleInput}

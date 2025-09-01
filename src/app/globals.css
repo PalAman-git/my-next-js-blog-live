@@ -16,7 +16,7 @@
   --warning: #f5a623;
   --error: #ff5c5c;
   --input: #2a2a2a;
-  --ring: #8e8dfa;
+  --ring: #d09963;
   --overlay: rgba(0,0,0,0.6);
 }
 
@@ -32,7 +32,7 @@ html.light {
   --warning: #f5a623;
   --error: #ff5c5c;
   --input: #f0f0f0;
-  --ring: #8e8dfa;
+  --ring: #d09963;
   --overlay: rgba(0,0,0,0.04);
 }
 
