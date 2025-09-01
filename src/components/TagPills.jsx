@@ -23,7 +23,7 @@ export default function TagPills({ tags, category }) {
         <button
           key={tag}
           onClick={() => toggle(tag)}
-          className={`px-3 py-1 rounded-full border font-medium shadow-sm text-sm
+          className={`px-3 py-1 rounded-full border font-medium shadow-sm text-sm cursor-pointer
             ${selected === tag
               ? 'bg-[var(--accent)] text-white'
               : 'border-[var(--border)] bg-surface text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]'}

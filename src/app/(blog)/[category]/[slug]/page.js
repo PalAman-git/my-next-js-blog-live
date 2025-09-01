@@ -11,7 +11,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const post = await getPostBySlug(params.category, params.slug);
+  const {category,slug} = await params;
+  const post = await getPostBySlug(category, slug);
   if (!post) return {};
   // OpenGraph, Twitter Card, JSON-LD, etc.
   return {
@@ -34,7 +35,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function PostPage({ params }) {
-  const post = await getPostBySlug(params.category, params.slug);
+  const {category,slug} = await params;
+  const post = await getPostBySlug(category, slug);
   if (!post) return notFound();
 
   return (
