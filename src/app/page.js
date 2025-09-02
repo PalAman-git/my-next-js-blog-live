@@ -15,12 +15,12 @@ export default async function Home() {
         {/* <Image src="/logo.svg" alt="Logo" width={56} height={56} priority className="mb-2" /> */}
 
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--text)]">
-          Hi, I'm Aman. <span className="text-[var(--accent)]">I code & share.</span>
+          Aman here — building, breaking, sharing.
         </h1>
-
+{/* 
         <p className="max-w-md mx-auto text-lg text-muted">
           Daily dev logs, tutorials, and tech insights—all from my journey.
-        </p>
+        </p> */}
 
 
 
