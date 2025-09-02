@@ -59,7 +59,7 @@ export async function getAllSlugs() {
 
 // Get post content and frontmatter
 export async function getPostBySlug(category, slug) {
-  const filePath = path.join(process.cwd(), 'content', category, `${slug}.mdx`);
+  const filePath = path.join(process.cwd(),'src','content', category, `${slug}.mdx`);
   if (!fs.existsSync(filePath)) return null;
   const src = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(src);
